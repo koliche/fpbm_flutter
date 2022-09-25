@@ -5,6 +5,8 @@ import 'package:fpbm/models/login_view_model.dart';
 import 'package:get/get.dart';
 import 'package:get/get_core/src/get_main.dart';
 
+import '../services/user_service.dart';
+
 class LoginView extends StatefulWidget {
   const LoginView({Key? key}) : super(key: key);
 
@@ -14,7 +16,8 @@ class LoginView extends StatefulWidget {
 
 class _LoginViewState extends State<LoginView> {
   final GlobalKey<FormState> formKey = GlobalKey();
-  LoginViewModel _viewModel = Get.put(LoginViewModel());
+  LoginViewModel viewModel = Get.find();
+  UserService service = Get.find();
 
   TextEditingController emailCtr = TextEditingController();
   TextEditingController passwordCtr = TextEditingController();
@@ -72,7 +75,7 @@ class _LoginViewState extends State<LoginView> {
         ElevatedButton(
           onPressed: () async {
             if (formKey.currentState?.validate() ?? false) {
-              await _viewModel.loginUser(emailCtr.text, passwordCtr.text);
+              await viewModel.loginUser(emailCtr.text, passwordCtr.text);
             }
           },
           child: Text(

@@ -1,15 +1,18 @@
 import 'package:flutter/material.dart';
+import 'package:fpbm/services/user_service.dart';
 import 'package:get/get.dart';
+import 'package:http/http.dart';
 
 import '../services/auth_manager.dart';
 import 'home.dart';
 import 'login.dart';
 
 class SplashView extends StatelessWidget {
-  final AuthenticationManager _authmanager = Get.put(AuthenticationManager());
+  final AuthenticationManager authmanager = Get.find();
+  final UserService service = Get.find();
 
   Future<void> initializeSettings() async {
-    _authmanager.checkLoginStatus();
+    authmanager.checkLoginStatus();
 
     //Simulate other services for 3 seconds
     await Future.delayed(Duration(seconds: 3));
@@ -34,6 +37,7 @@ class SplashView extends StatelessWidget {
   }
 
   Scaffold errorView(AsyncSnapshot<Object?> snapshot) {
+    print("error");
     return Scaffold(body: Center(child: Text('Error: ${snapshot.error}')));
   }
 

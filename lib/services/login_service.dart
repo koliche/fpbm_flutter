@@ -8,7 +8,6 @@ import '../models/login_request.dart';
 /// via authenticaton related APIs
 class LoginService extends GetConnect {
   final String loginUrl = 'http://localhost:8080/login';
-  final String registerUrl = 'http://localhost:8080/login';
 
   Future<LoginResponseModel?> fetchLogin(LoginRequestModel model) async {
     final response = await post(loginUrl, model.toJson());

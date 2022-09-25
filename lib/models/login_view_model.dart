@@ -6,24 +6,24 @@ import '../services/login_service.dart';
 import 'login_request.dart';
 
 class LoginViewModel extends GetxController {
-  late final LoginService _loginService;
-  late final AuthenticationManager _authManager;
+  AuthenticationManager authManager = Get.find();
+  LoginService loginService = Get.find();
 
   @override
   void onInit() {
     super.onInit();
-    _loginService = Get.put(LoginService());
-    _authManager = Get.find();
+    loginService = Get.find();
+    authManager = Get.find();
   }
 
   Future<void> loginUser(String username, String password) async {
-    final response = await _loginService
+    final response = await loginService
         .fetchLogin(LoginRequestModel(username: username, password: password));
 
     if (response != null && response.role[0]['authority'] == 'student') {
       /// Set isLogin to true
       print(response.role[0]['authority']);
-      _authManager.login(response.token);
+      authManager.login(response.token);
     } else {
       /// Show user a dialog about the error response
       Get.defaultDialog(
@@ -31,7 +31,7 @@ class LoginViewModel extends GetxController {
           textConfirm: 'OK',
           confirmTextColor: Colors.white,
           onConfirm: () {
-            Get.back();
+            Get.back<LoginService>();
           });
     }
   }
