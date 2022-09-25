@@ -3,17 +3,17 @@ import 'package:get/get.dart';
 
 import '../services/auth_manager.dart';
 import '../services/login_service.dart';
+import '../services/user_service.dart';
 import 'login_request.dart';
 
 class LoginViewModel extends GetxController {
   AuthenticationManager authManager = Get.find();
-  LoginService loginService = Get.find();
+  UserService userService = Get.find();
+  late final LoginService loginService = LoginService();
 
   @override
   void onInit() {
     super.onInit();
-    loginService = Get.find();
-    authManager = Get.find();
   }
 
   Future<void> loginUser(String username, String password) async {
@@ -21,9 +21,10 @@ class LoginViewModel extends GetxController {
         .fetchLogin(LoginRequestModel(username: username, password: password));
 
     if (response != null && response.role[0]['authority'] == 'student') {
-      /// Set isLogin to true
-      print(response.role[0]['authority']);
       authManager.login(response.token);
+      // Get.to("/Home",
+      //     arguments: {"token": response.token, "username": response.username});
+      // //await userService.getUserInfoFromApi(response.token, response.username);
     } else {
       /// Show user a dialog about the error response
       Get.defaultDialog(
@@ -31,7 +32,7 @@ class LoginViewModel extends GetxController {
           textConfirm: 'OK',
           confirmTextColor: Colors.white,
           onConfirm: () {
-            Get.back<LoginService>();
+            Get.back();
           });
     }
   }

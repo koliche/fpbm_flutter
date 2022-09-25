@@ -58,7 +58,7 @@ class AuthenticationManager extends GetxController with CacheManager {
     final token = getToken();
     // Map<String, dynamic> data = parseJwt(token!);
     if (token != null) {
-      print("token : $token");
+      // print("token : $token");
       //print("data : $data");
       // ignore: prefer_interpolation_to_compose_strings
       //print("role : " + data["roles"]);

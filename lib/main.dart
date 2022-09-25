@@ -1,11 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:fpbm/app_router.dart';
 import 'package:fpbm/screens/splash_view.dart';
 import 'package:get/get.dart';
 import 'services/binging.dart';
 import 'package:get_storage/get_storage.dart';
 
 void main() async {
-  //WidgetsFlutterBinding.ensureInitialized();
+  WidgetsFlutterBinding.ensureInitialized();
   Binding().dependencies();
   await GetStorage.init();
   runApp(MyApp());
@@ -21,7 +22,8 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.orange,
       ),
-      home: SplashView(),
+      initialRoute: '/splashScreen',
+      getPages: AppRoutes.pages,
     );
   }
 }

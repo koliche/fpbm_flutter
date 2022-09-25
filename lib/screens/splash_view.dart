@@ -9,7 +9,7 @@ import 'login.dart';
 
 class SplashView extends StatelessWidget {
   final AuthenticationManager authmanager = Get.find();
-  final UserService service = Get.find();
+  final UserService userService = Get.find();
 
   Future<void> initializeSettings() async {
     authmanager.checkLoginStatus();
@@ -64,10 +64,11 @@ class OnBoard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    AuthenticationManager _authManager = Get.find();
+    AuthenticationManager authManager = Get.find();
+    final UserService userService = Get.find();
 
     return Obx(() {
-      return _authManager.isLogged.value ? HomeView() : LoginView();
+      return authManager.isLogged.value ? HomeView() : LoginView();
     });
   }
 }

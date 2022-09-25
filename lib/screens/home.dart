@@ -16,13 +16,12 @@ class HomeView extends StatefulWidget {
 
 class _HomeViewState extends State<HomeView> {
   AuthenticationManager authManager = Get.find();
-  UserService service = Get.find();
+  UserService userService = Get.find();
+  // final args = Get.arguments;
 
   @override
   void initState() {
     super.initState();
-    print("user info in home");
-    //print(_service.userModel?.toJson());
   }
 
   @override

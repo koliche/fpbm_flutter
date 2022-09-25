@@ -11,6 +11,5 @@ class Binding implements Bindings {
     Get.put(UserService(), permanent: true);
     Get.put(AuthenticationManager(), permanent: true);
     Get.put(LoginViewModel(), permanent: true);
-    Get.put(LoginService(), permanent: true);
   }
 }
