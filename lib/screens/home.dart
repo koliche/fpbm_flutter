@@ -2,6 +2,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:fpbm/models/user_model.dart';
+import 'package:fpbm/screens/widgets/my_appBar.dart';
 import 'package:fpbm/screens/widgets/my_drawer.dart';
 import 'package:fpbm/services/user_service.dart';
 import 'package:get/get.dart';
@@ -28,24 +29,7 @@ class _HomeViewState extends State<HomeView> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: AppBar(
-          centerTitle: true,
-          title: Text(
-            'Home',
-            style: TextStyle(color: Colors.white),
-          ),
-          iconTheme: IconThemeData(color: Colors.white),
-          actions: [
-            IconButton(
-                onPressed: () {
-                  authManager.logOut();
-                },
-                icon: Icon(
-                  Icons.logout_rounded,
-                  color: Colors.white,
-                ))
-          ],
-        ),
+        appBar: MyAppBar(),
         drawer: MyDrawer(),
         body: Container(
             child: GetBuilder<UserService>(

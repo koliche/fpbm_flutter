@@ -25,7 +25,7 @@ class MyDrawer extends StatelessWidget {
           ),
           ListTile(
             title: Text('Home'),
-            tileColor: Get.currentRoute == '/Home' ? Colors.grey[300] : null,
+            tileColor: Get.currentRoute == '/' ? Colors.grey[300] : null,
             onTap: () {
               print(Get.currentRoute);
               Get.back();
@@ -34,47 +34,47 @@ class MyDrawer extends StatelessWidget {
           ),
           ListTile(
             title: Text('Demander une pièce'),
-            tileColor: Get.currentRoute == '/Home' ? Colors.grey[300] : null,
+            tileColor: Get.currentRoute == '/' ? Colors.grey[300] : null,
             onTap: () {
               Get.back();
-              Get.offNamed('/Home');
+              Get.offNamed('/RequestPart');
+            },
+          ),
+          ListTile(
+            title: Text('récupération pièce'),
+            tileColor: Get.currentRoute == '/' ? Colors.grey[300] : null,
+            onTap: () {
+              Get.back();
+              Get.offNamed('/PartRecovery');
             },
           ),
           ListTile(
             title: Text('Réclamation note'),
-            tileColor: Get.currentRoute == '/Home' ? Colors.grey[300] : null,
+            tileColor: Get.currentRoute == '/' ? Colors.grey[300] : null,
             onTap: () {
               Get.back();
-              Get.offNamed('/Home');
-            },
-          ),
-          ListTile(
-            title: Text('Réclamation note'),
-            tileColor: Get.currentRoute == '/Home' ? Colors.grey[300] : null,
-            onTap: () {
-              Get.back();
-              Get.offNamed('/Home');
+              Get.offNamed('/ComplaintNote');
             },
           ),
           ListTile(
             title: Text('Réponse réclamation note'),
-            tileColor: Get.currentRoute == '/Home' ? Colors.grey[300] : null,
+            tileColor: Get.currentRoute == '/' ? Colors.grey[300] : null,
             onTap: () {
               Get.back();
-              Get.offNamed('/Home');
+              Get.offNamed('/ReplyComplaintNote');
             },
           ),
           ListTile(
             title: Text('Réclamation d\'inscription en module'),
-            tileColor: Get.currentRoute == '/Home' ? Colors.grey[300] : null,
+            tileColor: Get.currentRoute == '/' ? Colors.grey[300] : null,
             onTap: () {
               Get.back();
-              Get.offNamed('/Home');
+              Get.offNamed('/ModuleRegistrationClaim');
             },
           ),
           ListTile(
             title: Text('Réponse réclamation d\'inscription en module'),
-            tileColor: Get.currentRoute == '/Home' ? Colors.grey[300] : null,
+            tileColor: Get.currentRoute == '/' ? Colors.grey[300] : null,
             onTap: () {
               Get.back();
               Get.offNamed('/Home');
@@ -82,7 +82,7 @@ class MyDrawer extends StatelessWidget {
           ),
           ListTile(
             title: Text('Réclamation bourse'),
-            tileColor: Get.currentRoute == '/Home' ? Colors.grey[300] : null,
+            tileColor: Get.currentRoute == '/' ? Colors.grey[300] : null,
             onTap: () {
               Get.back();
               Get.offNamed('/Home');
@@ -90,7 +90,7 @@ class MyDrawer extends StatelessWidget {
           ),
           ListTile(
             title: Text('Réponse réclamation bourse'),
-            tileColor: Get.currentRoute == '/Home' ? Colors.grey[300] : null,
+            tileColor: Get.currentRoute == '/' ? Colors.grey[300] : null,
             onTap: () {
               Get.back();
               Get.offNamed('/Home');
@@ -98,7 +98,7 @@ class MyDrawer extends StatelessWidget {
           ),
           ListTile(
             title: Text('Déconnexion'),
-            tileColor: Get.currentRoute == '/Home' ? Colors.grey[300] : null,
+            tileColor: Get.currentRoute == '/' ? Colors.grey[300] : null,
             onTap: () {
               Get.back();
               authManager.logOut();
