@@ -1,8 +1,6 @@
-import 'dart:developer';
-
 class LoginResponseModel {
   String? token;
-  dynamic? role;
+  dynamic role;
   String? username;
 
   LoginResponseModel({this.token, this.role, this.username});
