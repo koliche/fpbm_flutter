@@ -3,10 +3,19 @@ import 'package:get/get.dart';
 
 import '../../services/auth_manager.dart';
 
-class MyAppBar extends StatelessWidget implements PreferredSizeWidget {
+class MyAppBar extends StatefulWidget implements PreferredSizeWidget {
   MyAppBar({Key? key}) : super(key: key);
 
+  @override
+  State<MyAppBar> createState() => _MyAppBarState();
+
+  @override
+  Size get preferredSize => const Size.fromHeight(50);
+}
+
+class _MyAppBarState extends State<MyAppBar> {
   AuthenticationManager authManager = Get.find();
+
   @override
   Size get preferredSize => const Size.fromHeight(50);
 

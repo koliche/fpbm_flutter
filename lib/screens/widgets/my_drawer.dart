@@ -77,7 +77,7 @@ class MyDrawer extends StatelessWidget {
             tileColor: Get.currentRoute == '/' ? Colors.grey[300] : null,
             onTap: () {
               Get.back();
-              Get.offNamed('/Home');
+              Get.offNamed('/ModRegistComplaintResponse');
             },
           ),
           ListTile(
@@ -85,7 +85,7 @@ class MyDrawer extends StatelessWidget {
             tileColor: Get.currentRoute == '/' ? Colors.grey[300] : null,
             onTap: () {
               Get.back();
-              Get.offNamed('/Home');
+              Get.offNamed('/ScholarshipClaim');
             },
           ),
           ListTile(
@@ -93,7 +93,7 @@ class MyDrawer extends StatelessWidget {
             tileColor: Get.currentRoute == '/' ? Colors.grey[300] : null,
             onTap: () {
               Get.back();
-              Get.offNamed('/Home');
+              Get.offNamed('/ScholarshipClaim');
             },
           ),
           ListTile(
