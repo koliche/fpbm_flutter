@@ -1,4 +1,6 @@
+import 'package:get/get.dart';
 import 'package:get_storage/get_storage.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 mixin CacheManager {
   Future<bool> saveToken(String? token) async {
@@ -13,8 +15,12 @@ mixin CacheManager {
   }
 
   Future<void> removeToken() async {
+    final prefs = await SharedPreferences.getInstance();
     final box = GetStorage();
+    await prefs.remove('token');
+    await prefs.remove('username');
     await box.remove(CacheManagerKey.TOKEN.toString());
+    print("Remave all !!!!!!!!!");
   }
 }
 

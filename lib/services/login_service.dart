@@ -14,6 +14,13 @@ class LoginService extends GetConnect {
     final response = await post(loginUrl, model.toJson());
 
     if (response.statusCode == HttpStatus.ok) {
+      // Obtain shared preferences.
+      final prefs = await SharedPreferences.getInstance();
+      await prefs.setString(
+          'token', LoginResponseModel.fromJson(response.body).token.toString());
+      await prefs.setString('username',
+          LoginResponseModel.fromJson(response.body).username.toString());
+      print(prefs.getString('token'));
       return LoginResponseModel.fromJson(response.body);
     } else {
       return null;

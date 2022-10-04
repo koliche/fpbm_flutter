@@ -8,6 +8,7 @@ import 'package:fpbm/models/user_model.dart';
 import 'package:get/get.dart';
 import 'package:get_storage/get_storage.dart';
 import 'package:http/http.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 class UserService extends GetxController with CacheManager {
   // UserService service = Get.find<UserService>();
@@ -16,11 +17,12 @@ class UserService extends GetxController with CacheManager {
   var isDataLoading = false.obs;
 
   @override
-  void onInit() {
+  Future<void> onInit() async {
+    SharedPreferences prefs = await SharedPreferences.getInstance();
     super.onInit();
-    getUserInfoFromApi(
-        "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJrb2xpY2hlIiwicm9sZXMiOlsic3R1ZGVudCJdLCJpc3MiOiJodHRwOi8vbG9jYWxob3N0OjgwODAvbG9naW4ifQ.Wv7vFcMNacHCIPUvgDAaMAfbUWpwSLNP9RZN0k85Y6A",
-        "koliche");
+    print("object");
+    print(prefs.getString('token'));
+    getUserInfoFromApi(prefs.getString('token'), prefs.getString('username'));
   }
 
   getUserInfoFromApi(String? accessToken, String? username) async {

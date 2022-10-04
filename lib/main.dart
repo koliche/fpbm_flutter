@@ -6,9 +6,10 @@ import 'services/binging.dart';
 import 'package:get_storage/get_storage.dart';
 
 void main() async {
+  await GetStorage.init();
   WidgetsFlutterBinding.ensureInitialized();
   Binding().dependencies();
-  await GetStorage.init();
+
   runApp(MyApp());
 }
 

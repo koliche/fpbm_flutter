@@ -50,13 +50,11 @@ class AuthenticationManager extends GetxController with CacheManager {
 
   void login(String? token) async {
     isLogged.value = true;
-    //Token is cached
     await saveToken(token);
   }
 
   void checkLoginStatus() {
     final token = getToken();
-    // Map<String, dynamic> data = parseJwt(token!);
     if (token != null) {
       // print("token : $token");
       //print("data : $data");

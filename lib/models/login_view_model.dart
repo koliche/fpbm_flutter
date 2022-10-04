@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 import '../services/auth_manager.dart';
 import '../services/login_service.dart';
@@ -22,9 +23,6 @@ class LoginViewModel extends GetxController {
 
     if (response != null && response.role[0]['authority'] == 'student') {
       authManager.login(response.token);
-      // Get.to("/Home",
-      //     arguments: {"token": response.token, "username": response.username});
-      // //await userService.getUserInfoFromApi(response.token, response.username);
     } else {
       /// Show user a dialog about the error response
       Get.defaultDialog(
